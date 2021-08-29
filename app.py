@@ -24,9 +24,7 @@ def ValuePredictor(to_predict_list):
 def result():
     if request.method == 'POST':
         to_predict_list = request.form.values()
-        print('to_predict_list0:', to_predict_list)
         to_predict_list = list(map(float, to_predict_list))
-        print('to_predict_list1:', to_predict_list)
         results = ValuePredictor(to_predict_list)
 
         if float(results) == 1:
@@ -38,4 +36,4 @@ def result():
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(host='0.0.0.0', port=5000, debug=False)
